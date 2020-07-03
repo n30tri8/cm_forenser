@@ -4,8 +4,6 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 const fileUpload = require('express-fileupload');
 var logger = require('morgan');
-const userManagement = require('express-user-management');
-
 const config = require('./config.json');
 
 var detectorRouter = require('./routes/detector');
@@ -26,15 +24,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-userManagement.init(app, 
-  {
-    activationRequired: false, 
-    jwtSecret: 'fqPOqNPuPaZHkTC701kRTD0JxHSwBTdeKsGzXSy7UrRB0V0F22z0wkpCw2mWJC3',
-    mongoUrl: 'mongodb://localhost:27017/cm_forenser'
-  }
-);
-// TODO: "C:\Program Files\MongoDB\Server\4.2\bin\mongod.exe" --dbpath="E:\workspace\final_thesis\cm_forenser\mongo_db_dir"; add this to npm run and config
 
 app.use('/detect', detectorRouter);
 

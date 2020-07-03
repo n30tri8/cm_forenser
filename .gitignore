@@ -62,6 +62,3 @@ typings/
 
 # config file
 config.json
-
-# db folder
-mongo_db_dir/
