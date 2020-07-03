@@ -6,12 +6,15 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
     "child_process": "^1.0.2",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "express-fileupload": "^1.1.7-alpha.3",
+    "express-user-management": "^1.5.0",
     "http-errors": "~1.6.3",
+    "mongodb": "^3.5.9",
     "morgan": "~1.9.1",
     "promise": "^8.1.0",
     "pug": "2.0.0-beta11"
