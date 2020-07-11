@@ -1,0 +1,32 @@
+extends ../layouts/default
+
+block main
+  h1= title
+
+block content
+  script(src="/javascripts/detect-page.js")
+  - if (typeof detection_result_url != 'undefined')
+    p#result_paragraph.my-2.px-3 Detection Result:
+    #result_container.row.justify-content-center
+      .col-md-7
+        img(src=detection_result_url class="img-thumbnail")
+    - if (show_detect_again)
+      .row
+        .col-md-12
+          a(href="#" class="stretched-link small" id='detect_again_container' onclick='modifiy_page_form(2)') Detect with another algorithm?
+          div(id='upload_again_container')
+    hr
+  .row
+    .col-md-12
+      form(method="post", action='/detect', enctype="multipart/form-data", role="form")
+        input(type="hidden", name="_csrf", value=csrf_token)
+
+        input(id='detection_method' type="hidden", name="detection_method", value=detection_method)
+
+        .form-group
+          label(for='file') Image:
+          input.form-control-file#file(type='file', name="suspectedImage")
+
+        button.btn.btn-primary(type='submit') Scrutinize
+
+

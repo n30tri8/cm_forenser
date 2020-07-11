@@ -1,0 +1,20 @@
+extends ../layouts/default
+
+block main
+  center
+    h1 Users
+
+block content
+  p.col-sm-offset-2.error= message
+  
+  div(class='py-3 .thead-light')
+    .container
+      .row
+        .col-md Username
+        .col-md Email
+        .col-md Created At
+        .col-md
+  
+  each user in users
+    div(class='py-3 border-top')
+      include ./user-entry

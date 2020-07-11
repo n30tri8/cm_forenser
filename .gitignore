@@ -62,3 +62,7 @@ typings/
 
 # config file
 config.json
+
+# db
+mongo_db_dir/
+imageUploadDir/

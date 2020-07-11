@@ -1,0 +1,12 @@
+- if (typeof user != 'undefined')
+  - let prettyCreatedAt = new Date(user.createdAt).toDateString()
+  .container
+    .row
+      .col-md= user.username
+      .col-md= user.email
+      .col-md= prettyCreatedAt
+      .col-md
+        form.form-inline(role="form", method="post", action="/users", onsubmit="return confirm('Are you sure?')")
+          input(type='hidden', name='_csrf', value=csrf_token)
+          input(type="hidden", name="username", value=user.username)
+          button.btn.btn-link.text-danger(type="submit") delete
